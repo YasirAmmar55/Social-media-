@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title> Axial Woodworking</title>
+<title>Axial Woodworking</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -180,102 +180,6 @@ h1{
     box-shadow:0 0 25px #1aff73;
 }
 
-/* FOOTER */
-
-footer{
-    text-align:center;
-    padding:30px;
-    color:#888;
-    border-top:1px solid rgba(255,255,255,0.08);
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-    h1{
-        font-size:42px;
-    }
-
-    .about{
-        font-size:16px;
-    }
-
-    .logo{
-        width:150px;
-        height:150px;
-    }
-
-    .loader-logo{
-        width:140px;
-        height:140px;
-    }
-
-    .socials a{
-        width:100%;
-    }
-   /* FOOTER */
-
-/* FOOTER */
-
-footer{
-    margin-top:80px;
-    padding:35px 20px;
-    text-align:center;
-    border-top:1px solid rgba(255,255,255,0.08);
-    background:#050505;
-}
-
-.footer-contact{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:15px;
-    margin-bottom:15px;
-}
-
-.footer-contact a{
-    text-decoration:none;
-    color:#ffffff;
-    font-size:15px;
-    font-weight:400;
-    transition:0.3s;
-}
-
-.footer-contact a:hover{
-    color:#1aff73;
-}
-
-.dot{
-    width:5px;
-    height:5px;
-    background:#1aff73;
-    border-radius:50%;
-}
-
-footer p{
-    color:#777;
-    font-size:14px;
-    margin-top:5px;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-    .footer-contact{
-        flex-direction:column;
-        gap:10px;
-    }
-
-    .dot{
-        display:none;
-    }
-
-    .footer-contact a{
-        font-size:14px;
-    }
 /* CONTACT FORM */
 
 .contact-section{
@@ -338,16 +242,93 @@ footer p{
     text-align:center;
     color:#1aff73;
 }
-}
+
+/* FOOTER */
+
+footer{
+    margin-top:80px;
+    padding:35px 20px;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,0.08);
+    background:#050505;
 }
 
+.footer-contact{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-bottom:15px;
+}
+
+.footer-contact a{
+    text-decoration:none;
+    color:#ffffff;
+    font-size:15px;
+    font-weight:400;
+    transition:0.3s;
+}
+
+.footer-contact a:hover{
+    color:#1aff73;
+}
+
+.dot{
+    width:5px;
+    height:5px;
+    background:#1aff73;
+    border-radius:50%;
+}
+
+footer p{
+    color:#777;
+    font-size:14px;
+    margin-top:5px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    h1{
+        font-size:42px;
+    }
+
+    .about{
+        font-size:16px;
+    }
+
+    .logo{
+        width:150px;
+        height:150px;
+    }
+
+    .loader-logo{
+        width:140px;
+        height:140px;
+    }
+
+    .socials a{
+        width:100%;
+    }
+
+    .footer-contact{
+        flex-direction:column;
+    }
+
+    .dot{
+        display:none;
+    }
+
+}
 
 </style>
 </head>
 
 <body>
 
-<!-- LOADING SCREEN -->
+<!-- LOADER -->
 
 <div id="loader">
 
@@ -383,7 +364,7 @@ footer p{
             🏡 Kitchens • Bathrooms • Closets
             🏢 Residential & Commercial Projects
             📍 Los Angeles, CA
-            ⌨️DM for Inquiries
+            ⌨️ DM for Inquiries
         </p>
 
         <!-- SOCIAL LINKS -->
@@ -394,7 +375,7 @@ footer p{
                 Instagram
             </a>
 
-            <a href="https://web.facebook.com/axialwoodworking?_rdc=1&_rdr#" target="_blank">
+            <a href="https://web.facebook.com/axialwoodworking" target="_blank">
                 Facebook
             </a>
 
@@ -406,7 +387,7 @@ footer p{
                 Pinterest
             </a>
 
-            <a href="https://www.yelp.com/biz/axial-woodworking-paramount-2?osq=Axial+WoodWorking" target="_blank">
+            <a href="https://www.yelp.com/biz/axial-woodworking-paramount-2" target="_blank">
                 Yelp
             </a>
 
@@ -415,31 +396,34 @@ footer p{
             </a>
 
         </div>
-<!-- CONTACT FORM -->
 
-<section class="contact-section">
+        <!-- CONTACT FORM -->
 
-    <h2>Send Us A Message</h2>
+        <section class="contact-section">
 
-    <form id="contact-form">
+            <h2>Send Us A Message</h2>
 
-        <input type="text" name="name" placeholder="Your Name" required>
+            <form id="contact-form">
 
-        <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="text" name="name" placeholder="Address" required>
 
-        <input type="tel" name="phone" placeholder="Phone Number">
+                <input type="email" name="email" placeholder="Your Email" required>
 
-        <textarea name="message" placeholder="Your Message" required></textarea>
+                <input type="tel" name="phone" placeholder="Phone Number">
 
-        <button type="submit">
-            Send Message
-        </button>
+                <textarea name="message" placeholder="Your Message" required></textarea>
 
-    </form>
+                <button type="submit">
+                    Send Message
+                </button>
 
-    <p id="response-msg"></p>
+            </form>
 
-</section>
+            <p id="response-msg"></p>
+
+        </section>
+
     </div>
 
 </section>
@@ -447,64 +431,69 @@ footer p{
 <!-- FOOTER -->
 
 <footer>
-   <!-- FOOTER -->
 
-<footer>
+    <div class="footer-contact">
 
-    <footer>
+        <a href="tel:+18187075471">
+            (818) 707-5471
+        </a>
 
-        <div class="footer-contact">
-    
-            <a href="tel:+18187075471">
-                (818) 707-5471
-            </a>
-    
-            <span class="dot"></span>
-    
-            <a href="mailto:misaelbaltazar@axialwoodworking.com">
-                misaelbaltazar@axialwoodworking.com
-            </a>
-    
-        </div>
-    
-        <p>
-            © 2026 Axial Woodworking — All Rights Reserved
-        </p>
-    
-    </footer>
+        <span class="dot"></span>
+
+        <a href="mailto:misaelbaltazar@axialwoodworking.com">
+            misaelbaltazar@axialwoodworking.com
+        </a>
+
+    </div>
+
+    <p>
+        © 2026 Axial Woodworking — All Rights Reserved
+    </p>
 
 </footer>
+
+<!-- GOOGLE SHEET SCRIPT -->
+
 <script>
 
-const scriptURL = "https://script.google.com/a/macros/axialwoodworking.com/s/AKfycbxWv81ekDjNmZ0tPH2ZWWcAzCF3zzvxRLD3M527MY5qXehfYHLMV-Iabu4puunkiAdN/exec";
+const scriptURL = "PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE";
 
-const form = document.getElementById("contact-form");
-const responseMsg = document.getElementById("response-msg");
+const form = document.getElementById('contact-form');
 
-form.addEventListener("submit", e => {
+const responseMsg = document.getElementById('response-msg');
+
+form.addEventListener('submit', function(e){
 
     e.preventDefault();
 
     fetch(scriptURL, {
-        method: "POST",
+        method: 'POST',
         body: new FormData(form)
     })
 
-    .then(response => {
+    .then(res => res.text())
+
+    .then(data => {
 
         responseMsg.innerHTML = "Message Sent Successfully!";
+        responseMsg.style.color = "#1aff73";
+
         form.reset();
 
     })
 
     .catch(error => {
 
-        responseMsg.innerHTML = "Something went wrong.";
+        responseMsg.innerHTML = "Error Sending Message!";
+        responseMsg.style.color = "red";
+
+        console.error(error);
 
     });
 
 });
 
 </script>
+
 </body>
 </html>
