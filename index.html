@@ -1,238 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Axial Woodworking</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title> Axial Woodworking</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+/* RESET */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
+    background:#050505;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* LOADING SCREEN */
+
+#loader{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
     background:#000;
-    color:#fff;
     display:flex;
     justify-content:center;
     align-items:center;
+    flex-direction:column;
+    z-index:99999;
+    animation:hideLoader 1s ease forwards;
+    animation-delay:3s;
+}
+
+@keyframes hideLoader{
+    to{
+        opacity:0;
+        visibility:hidden;
+    }
+}
+
+.loader-logo{
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #1aff73;
+    box-shadow:0 0 50px #1aff73;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+    0%{
+        transform:scale(1);
+        box-shadow:0 0 20px #1aff73;
+    }
+
+    50%{
+        transform:scale(1.08);
+        box-shadow:0 0 70px #1aff73;
+    }
+
+    100%{
+        transform:scale(1);
+        box-shadow:0 0 20px #1aff73;
+    }
+}
+
+.loading-text{
+    margin-top:25px;
+    font-size:14px;
+    letter-spacing:6px;
+    color:white;
+}
+
+/* HERO SECTION */
+
+.hero{
     min-height:100vh;
-    padding:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:'';
+    position:absolute;
+    width:650px;
+    height:650px;
+    background:#1aff73;
+    border-radius:50%;
+    filter:blur(180px);
+    opacity:0.15;
 }
 
 .container{
-    width:100%;
-    max-width:420px;
+    position:relative;
+    z-index:2;
+    max-width:950px;
 }
 
-.card{
-    background:#111;
-    border:1px solid #222;
-    border-radius:30px;
-    overflow:hidden;
-    box-shadow:0 20px 50px rgba(0,0,0,0.5);
-}
+/* MAIN LOGO */
 
-.top-line{
-    height:6px;
-    background:#00ff88;
-}
-
-.content{
-    padding:40px 30px;
-    text-align:center;
-}
-
-.logo-box{
-    width:180px;
-    margin:auto;
-    background:#fff;
-    border-radius:25px;
-    padding:px;
-    border:4px solid #00ff88;
-    box-shadow:0 10px 30px rgba(0,255,136,0.2);
-}
-.logo-circle{
+.logo{
     width:190px;
     height:190px;
-    margin:auto;
     border-radius:50%;
-    background:#000;
-    border:5px solid #00ff88;
+    object-fit:cover;
+    border:5px solid #1aff73;
+    margin-bottom:30px;
+    box-shadow:0 0 45px #1aff73;
+}
+
+/* HEADING */
+
+h1{
+    font-size:68px;
+    font-weight:800;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.green{
+    color:#1aff73;
+}
+
+/* ABOUT */
+
+.about{
+    max-width:760px;
+    margin:auto;
+    margin-bottom:50px;
+    color:#d8d8d8;
+    font-size:18px;
+    line-height:1.9;
+}
+
+/* SOCIALS */
+
+.socials{
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow:hidden;
-    box-shadow:0 0 35px rgba(0,255,136,0.35);
+    flex-wrap:wrap;
+    gap:20px;
 }
 
-.logo-circle img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-    transform:scale(1.15);
-}
-
-
-
-
-
-.brand{
-    font-size:42px;
-    font-weight:700;
-    margin-top:25px;
-    letter-spacing:3px;
-}
-
-.sub{
-    color:#00ff88;
-    text-transform:uppercase;
-    letter-spacing:6px;
-    margin-top:8px;
-    font-size:13px;
-}
-
-.about{
-    color:#cfcfcf;
-    font-size:15px;
-    line-height:1.7;
-    margin-top:25px;
-}
-
-.links{
-    margin-top:35px;
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-}
-
-.links a{
+.socials a{
     text-decoration:none;
-    color:#fff;
-    background:#1b1b1b;
-    padding:18px 20px;
-    border-radius:18px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    transition:0.3s ease;
-    font-size:18px;
-    font-weight:600;
+    color:white;
+    border:1px solid #1aff73;
+    padding:15px 30px;
+    border-radius:60px;
+    transition:0.4s;
+    font-weight:500;
+    background:rgba(255,255,255,0.03);
+    backdrop-filter:blur(10px);
 }
 
-.links a:hover{
-    background:#00ff88;
-    color:#000;
-    transform:translateY(-3px);
+.socials a:hover{
+    background:#1aff73;
+    color:black;
+    transform:translateY(-6px);
+    box-shadow:0 0 25px #1aff73;
 }
 
-.contact{
-    margin-top:35px;
-    padding-top:25px;
-    border-top:1px solid #222;
-    color:#999;
-    font-size:14px;
-    line-height:2;
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:30px;
+    color:#888;
+    border-top:1px solid rgba(255,255,255,0.08);
 }
 
-@media(max-width:500px){
+/* MOBILE */
 
-    .logo-box{
+@media(max-width:768px){
+
+    h1{
+        font-size:42px;
+    }
+
+    .about{
+        font-size:16px;
+    }
+
+    .logo{
         width:150px;
+        height:150px;
     }
 
-    .brand{
-        font-size:34px;
+    .loader-logo{
+        width:140px;
+        height:140px;
+    }
+
+    .socials a{
+        width:100%;
+    }
+   /* FOOTER */
+
+/* FOOTER */
+
+footer{
+    margin-top:80px;
+    padding:35px 20px;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,0.08);
+    background:#050505;
+}
+
+.footer-contact{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-bottom:15px;
+}
+
+.footer-contact a{
+    text-decoration:none;
+    color:#ffffff;
+    font-size:15px;
+    font-weight:400;
+    transition:0.3s;
+}
+
+.footer-contact a:hover{
+    color:#1aff73;
+}
+
+.dot{
+    width:5px;
+    height:5px;
+    background:#1aff73;
+    border-radius:50%;
+}
+
+footer p{
+    color:#777;
+    font-size:14px;
+    margin-top:5px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .footer-contact{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .dot{
+        display:none;
+    }
+
+    .footer-contact a{
+        font-size:14px;
     }
 
 }
+}
+
+
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- LOADING SCREEN -->
 
-    <div class="card">
+<div id="loader">
 
-        <div class="top-line"></div>
+    <img src="Logo.jpg" class="loader-logo">
 
-        <div class="content">
-            <div class="logo-circle">
-                <img src="Main Logo.jpg" alt="Axial Logo">
-            </div>
-            
+    <div class="loading-text">
+        LOADING...
+    </div>
 
-            <h1 class="brand">AXIAL</h1>
+</div>
 
-            <p class="sub">WOODWORKING</p>
+<!-- WEBSITE -->
 
-            <p class="about">
-                Premium custom cabinetry, millwork, interior finishes,
-                and modern woodworking craftsmanship built with precision.
-            </p>
+<section class="hero">
 
-            <div class="links">
+    <div class="container">
 
-                <a href="https://www.instagram.com/axialwoodworking/" target="_blank">
-                    <span>📸 Instagram</span>
-                    <span>↗</span>
-                </a>
+        <!-- LOGO -->
 
-                <a href="https://web.facebook.com/axialwoodworking?_rdc=1&_rdr#" target="_blank">
-                    <span>📘 Facebook</span>
-                    <span>↗</span>
-                </a>
+        <img src="Logo.jpg" class="logo">
 
-                <a href="https://tiktok.com" target="_blank">
-                    <span>🎵 TikTok</span>
-                    <span>↗</span>
-                </a>
+        <!-- TITLE -->
 
-                <a href="https://www.youtube.com/@axialwoodworking" target="_blank">
-                    <span>▶ YouTube</span>
-                    <span>↗</span>
-                </a>
-                <div class="links">
+        <h1>
+            AXIAL <span class="green">WOODWORKING</span>
+        </h1>
 
-                  
-                
-                    <a href="https://www.pinterest.com/axialwoodworking/" target="_blank">
-                        <span>📌 Pinterest</span>
-                        <span>↗</span>
-                    </a>
-                
-                    <a href="http://yelp.com/biz/axial-woodworking-paramount-2" target="_blank">
-                        <span>⭐ Yelp</span>
-                        <span>↗</span>
-                    </a>
-                
-                </div>
+        <!-- ABOUT -->
 
-            </div>
+        <p class="about">
+            Kitchen & Bath Contractor
+            🪵 Custom Cabinetry & Millwork
+            🏡 Kitchens • Bathrooms • Closets
+            🏢 Residential & Commercial Projects
+            📍 Los Angeles, CA
+            ⌨️DM for Inquiries
+        </p>
 
-            <div class="contact">
-                <p>📍 Los Angeles, California</p>
-                <p>📞 (818) 707-5471</p>
-                <p>✉️ axialwoodworking@gmail.com</p>
-            </div>
+        <!-- SOCIAL LINKS -->
+
+        <div class="socials">
+
+            <a href="https://www.instagram.com/axialwoodworking/" target="_blank">
+                Instagram
+            </a>
+
+            <a href="https://web.facebook.com/axialwoodworking?_rdc=1&_rdr#" target="_blank">
+                Facebook
+            </a>
+
+            <a href="https://www.youtube.com/@axialwoodworking" target="_blank">
+                YouTube
+            </a>
+
+            <a href="https://www.pinterest.com/axialwoodworking/" target="_blank">
+                Pinterest
+            </a>
+
+            <a href="https://www.yelp.com/biz/axial-woodworking-paramount-2?osq=Axial+WoodWorking" target="_blank">
+                Yelp
+            </a>
+
+            <a href="https://axialwoodworking.com/" target="_blank">
+                Website
+            </a>
 
         </div>
 
     </div>
 
-</div>
+</section>
 
-<script>
+<!-- FOOTER -->
 
-// Add your future JavaScript here
+<footer>
+   <!-- FOOTER -->
 
-console.log("Axial Woodworking Website Loaded");
+<footer>
 
-</script>
+    <footer>
+
+        <div class="footer-contact">
+    
+            <a href="tel:+18187075471">
+                (818) 707-5471
+            </a>
+    
+            <span class="dot"></span>
+    
+            <a href="mailto:misaelbaltazar@axialwoodworking.com">
+                misaelbaltazar@axialwoodworking.com
+            </a>
+    
+        </div>
+    
+        <p>
+            © 2026 Axial Woodworking — All Rights Reserved
+        </p>
+    
+    </footer>
+
+</footer>
 
 </body>
 </html>
