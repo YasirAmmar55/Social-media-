@@ -261,6 +261,217 @@ h1{
 .socials a i{
     font-size:23px;
 }
+.social-text-icon{
+    font-size:22px;
+    font-weight:800;
+    line-height:1;
+}
+
+.reviews-section{
+    width:100%;
+    max-width:850px;
+    margin:60px auto 0;
+    padding:40px;
+    background:#0c0c0c;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:25px;
+}
+
+.reviews-head{
+    text-align:center;
+    margin-bottom:28px;
+}
+
+.reviews-head h2{
+    font-size:40px;
+    line-height:1.2;
+    margin-bottom:10px;
+}
+
+.reviews-head p{
+    color:#999;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.rating-summary{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:14px;
+    margin:20px 0 30px;
+    flex-wrap:wrap;
+}
+
+.average-rating{
+    font-size:34px;
+    font-weight:800;
+}
+
+.stars{
+    color:#1aff73;
+    letter-spacing:3px;
+    font-size:22px;
+}
+
+.review-form{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    margin-bottom:30px;
+}
+
+.review-form input,
+.review-form textarea{
+    width:100%;
+    padding:15px;
+    background:#050505;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:14px;
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    font-size:15px;
+    outline:none;
+}
+
+.review-form input:focus,
+.review-form textarea:focus{
+    border-color:#1aff73;
+    box-shadow:0 0 12px rgba(26,255,115,.12);
+}
+
+.review-form textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+.star-picker{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+}
+
+.star-picker button{
+    background:none;
+    border:0;
+    color:#555;
+    font-size:28px;
+    cursor:pointer;
+    padding:2px;
+    transition:.2s;
+}
+
+.star-picker button.active,
+.star-picker button:hover{
+    color:#1aff73;
+    transform:scale(1.08);
+}
+
+.review-submit{
+    min-height:52px;
+    border:0;
+    border-radius:14px;
+    background:#1aff73;
+    color:#000;
+    font-family:'Poppins',sans-serif;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.review-submit:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 25px #1aff73;
+}
+
+.review-message{
+    text-align:center;
+    color:#1aff73;
+    font-size:13px;
+}
+
+.review-list{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.review-card{
+    padding:20px;
+    background:#050505;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;
+}
+
+.review-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    margin-bottom:8px;
+}
+
+.review-name{
+    font-weight:700;
+}
+
+.review-date{
+    color:#666;
+    font-size:12px;
+}
+
+.review-card .stars{
+    font-size:16px;
+    margin-bottom:8px;
+}
+
+.review-card p{
+    color:#ccc;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.owner-reply{
+    margin-top:14px;
+    padding:12px 14px;
+    border-left:3px solid #1aff73;
+    background:rgba(26,255,115,.04);
+    color:#aaa;
+    font-size:13px;
+    line-height:1.6;
+}
+
+.owner-reply strong{
+    color:#1aff73;
+}
+
+.review-links{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin-top:25px;
+}
+
+.review-links a{
+    min-height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    padding:13px 16px;
+    border:1px solid #1aff73;
+    border-radius:14px;
+    color:#fff;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.review-links a:hover{
+    background:#1aff73;
+    color:#000;
+    transform:translateY(-2px);
+}
+
 
 .socials a:hover{
     background:#1aff73;
@@ -660,6 +871,30 @@ footer p{
     }
 
 
+    /* REVIEWS */
+
+    .reviews-section{
+        margin-top:45px;
+        padding:25px 17px;
+        border-radius:20px;
+    }
+
+    .reviews-head h2{
+        font-size:27px;
+    }
+
+    .rating-summary{
+        margin:18px 0 25px;
+    }
+
+    .average-rating{
+        font-size:30px;
+    }
+
+    .review-links{
+        grid-template-columns:1fr;
+    }
+
     /* FOOTER */
 
     footer{
@@ -926,6 +1161,26 @@ footer p{
             <i class="fa-solid fa-globe"></i>
         </a>
 
+        <a
+            href="https://www.houzz.com/pro/axialwoodworking/axial-woodworking"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Houzz"
+            aria-label="Houzz"
+        >
+            <span class="social-text-icon">H</span>
+        </a>
+
+        <a
+            href="https://www.thumbtack.com/customer/profile"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Thumbtack"
+            aria-label="Thumbtack"
+        >
+            <span class="social-text-icon">T</span>
+        </a>
+
     </div>
 
 
@@ -1028,6 +1283,62 @@ footer p{
 
 
 </div>
+
+</section>
+
+
+<!-- =========================
+     REVIEWS & RATINGS
+========================= -->
+
+<section class="reviews-section">
+
+    <div class="reviews-head">
+        <h2>Reviews & <span class="green">Ratings</span></h2>
+        <p>Share your experience with AXIAL Woodworking. Your feedback helps future customers.</p>
+    </div>
+
+    <div class="rating-summary">
+        <div class="average-rating" id="average-rating">0.0</div>
+        <div>
+            <div class="stars">★★★★★</div>
+            <div style="color:#777;font-size:12px;" id="review-count">0 reviews</div>
+        </div>
+    </div>
+
+    <form class="review-form" id="review-form">
+        <input type="text" id="review-name" placeholder="Your Name" required>
+
+        <div class="star-picker" id="star-picker" aria-label="Choose your rating">
+            <button type="button" data-rating="1">★</button>
+            <button type="button" data-rating="2">★</button>
+            <button type="button" data-rating="3">★</button>
+            <button type="button" data-rating="4">★</button>
+            <button type="button" data-rating="5">★</button>
+        </div>
+
+        <textarea id="review-text" placeholder="Write your review or message..." required></textarea>
+
+        <button class="review-submit" type="submit">
+            <i class="fa-solid fa-star"></i> Submit Review
+        </button>
+
+        <p class="review-message" id="review-message"></p>
+    </form>
+
+    <div class="review-list" id="review-list"></div>
+
+    <div class="review-links">
+        <a href="https://www.houzz.com/pro/axialwoodworking/axial-woodworking"
+           target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-house"></i> Review on Houzz
+        </a>
+
+        <a href="https://www.thumbtack.com/customer/profile"
+           target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-hammer"></i> View Thumbtack
+        </a>
+    </div>
 
 </section>
 
@@ -1245,9 +1556,156 @@ Thank you.`;
 
 }
 
+
+/* =========================
+   REVIEWS & RATINGS
+========================= */
+
+let selectedRating = 0;
+const reviewStorageKey = "axialWoodworkingReviews";
+
+const starButtons = document.querySelectorAll("#star-picker button");
+
+starButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        selectedRating = Number(button.dataset.rating);
+
+        starButtons.forEach(star => {
+            star.classList.toggle(
+                "active",
+                Number(star.dataset.rating) <= selectedRating
+            );
+        });
+    });
+});
+
+function loadReviews(){
+
+    const reviews = JSON.parse(
+        localStorage.getItem(reviewStorageKey) || "[]"
+    );
+
+    const list = document.getElementById("review-list");
+    const count = document.getElementById("review-count");
+    const average = document.getElementById("average-rating");
+
+    list.innerHTML = "";
+
+    if(!reviews.length){
+
+        list.innerHTML = `
+            <div class="review-card">
+                <p style="text-align:center;color:#777;">
+                    No reviews yet. Be the first to share your experience.
+                </p>
+            </div>
+        `;
+
+        count.innerText = "0 reviews";
+        average.innerText = "0.0";
+        return;
+    }
+
+    const total = reviews.reduce(
+        (sum, review) => sum + review.rating,
+        0
+    );
+
+    average.innerText =
+        (total / reviews.length).toFixed(1);
+
+    count.innerText =
+        reviews.length === 1
+        ? "1 review"
+        : `${reviews.length} reviews`;
+
+    reviews.slice().reverse().forEach(review => {
+
+        const card = document.createElement("div");
+        card.className = "review-card";
+
+        const stars =
+            "★".repeat(review.rating) +
+            "☆".repeat(5 - review.rating);
+
+        card.innerHTML = `
+            <div class="review-top">
+                <span class="review-name"></span>
+                <span class="review-date">${review.date}</span>
+            </div>
+
+            <div class="stars">${stars}</div>
+            <p class="review-body"></p>
+
+            ${review.reply ? `
+                <div class="owner-reply">
+                    <strong>AXIAL Woodworking Reply:</strong>
+                    ${review.reply}
+                </div>
+            ` : ""}
+        `;
+
+        card.querySelector(".review-name").textContent = review.name;
+        card.querySelector(".review-body").textContent = review.text;
+
+        list.appendChild(card);
+    });
+}
+
+document.getElementById("review-form").addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    const message = document.getElementById("review-message");
+
+    if(selectedRating === 0){
+        message.style.color = "#ff4d4d";
+        message.innerText = "Please select a rating.";
+        return;
+    }
+
+    const name =
+        document.getElementById("review-name").value.trim();
+
+    const text =
+        document.getElementById("review-text").value.trim();
+
+    const reviews = JSON.parse(
+        localStorage.getItem(reviewStorageKey) || "[]"
+    );
+
+    reviews.push({
+        name: name,
+        rating: selectedRating,
+        text: text,
+        date: new Date().toLocaleDateString(),
+        reply: ""
+    });
+
+    localStorage.setItem(
+        reviewStorageKey,
+        JSON.stringify(reviews)
+    );
+
+    this.reset();
+
+    selectedRating = 0;
+
+    starButtons.forEach(star =>
+        star.classList.remove("active")
+    );
+
+    message.style.color = "#1aff73";
+    message.innerText =
+        "Thank you! Your review has been added on this device.";
+
+    loadReviews();
+});
+
+loadReviews();
+
 </script>
 
 
 </body>
 </html>
-```
