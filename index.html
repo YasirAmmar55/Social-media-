@@ -1,1471 +1,513 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Axial Woodworking</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-<style>
-
-/* =========================
-   RESET
-========================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#050505;
-    color:#fff;
-    font-family:'Poppins',sans-serif;
-    overflow-x:hidden;
-}
-
-
-/* =========================
-   LOADER
-========================= */
-
-#loader{
-    position:fixed;
-    inset:0;
-    width:100%;
-    height:100dvh;
-
-    background:#000;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-
-    z-index:99999;
-
-    animation:hideLoader 1s ease forwards;
-    animation-delay:3s;
-}
-
-@keyframes hideLoader{
-    to{
-        opacity:0;
-        visibility:hidden;
-        pointer-events:none;
-    }
-}
-
-.loader-logo{
-    width:180px;
-    height:180px;
-
-    border-radius:50%;
-    object-fit:cover;
-
-    border:5px solid #1aff73;
-
-    box-shadow:0 0 50px #1aff73;
-
-    animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-
-    0%{
-        transform:scale(1);
-        box-shadow:0 0 20px #1aff73;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AXIAL Woodworking — Reviews & Ratings</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    /* ===== RESET & GLOBAL ===== */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      background:#050505;
+      color:#fff;
+      font-family:'Poppins',sans-serif;
+      overflow-x:hidden;
     }
 
-    50%{
-        transform:scale(1.08);
-        box-shadow:0 0 70px #1aff73;
+    /* ===== LOADER ===== */
+    #loader {
+      position:fixed; inset:0; width:100%; height:100dvh;
+      background:#000; display:flex; justify-content:center;
+      align-items:center; flex-direction:column; z-index:99999;
+      animation:hideLoader 1s ease forwards; animation-delay:3s;
+    }
+    @keyframes hideLoader {
+      to { opacity:0; visibility:hidden; pointer-events:none; }
+    }
+    .loader-logo {
+      width:180px; height:180px; border-radius:50%;
+      object-fit:cover; border:5px solid #1aff73;
+      box-shadow:0 0 50px #1aff73; animation:pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform:scale(1); box-shadow:0 0 20px #1aff73; }
+      50% { transform:scale(1.08); box-shadow:0 0 70px #1aff73; }
+      100% { transform:scale(1); box-shadow:0 0 20px #1aff73; }
+    }
+    .loading-text {
+      margin-top:25px; font-size:14px; letter-spacing:6px;
     }
 
-    100%{
-        transform:scale(1);
-        box-shadow:0 0 20px #1aff73;
+    /* ===== HERO SECTION ===== */
+    .hero {
+      min-height:100dvh; display:flex; justify-content:center;
+      align-items:center; text-align:center; padding:60px 20px;
+      position:relative; overflow:hidden;
+    }
+    .hero::before {
+      content:''; position:absolute; width:650px; height:650px;
+      background:#1aff73; border-radius:50%; filter:blur(180px);
+      opacity:.15; pointer-events:none;
+    }
+    .container {
+      position:relative; z-index:2; width:100%; max-width:950px; margin:auto;
     }
 
-}
-
-.loading-text{
-    margin-top:25px;
-    font-size:14px;
-    letter-spacing:6px;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    min-height:100dvh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-    padding:60px 20px;
-
-    position:relative;
-    overflow:hidden;
-}
-
-.hero::before{
-    content:'';
-
-    position:absolute;
-
-    width:650px;
-    height:650px;
-
-    background:#1aff73;
-
-    border-radius:50%;
-
-    filter:blur(180px);
-
-    opacity:.15;
-
-    pointer-events:none;
-}
-
-.container{
-    position:relative;
-    z-index:2;
-
-    width:100%;
-    max-width:950px;
-
-    margin:auto;
-}
-
-
-/* =========================
-   LOGO
-========================= */
-
-.logo{
-    width:190px;
-    height:190px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    border:5px solid #1aff73;
-
-    margin-bottom:30px;
-
-    box-shadow:0 0 45px #1aff73;
-}
-
-
-/* =========================
-   HEADING
-========================= */
-
-h1{
-    font-size:68px;
-    font-weight:800;
-
-    line-height:1.1;
-
-    margin-bottom:20px;
-
-    word-break:normal;
-}
-
-.green{
-    color:#1aff73;
-}
-
-
-/* =========================
-   ABOUT
-========================= */
-
-.about{
-    width:100%;
-    max-width:760px;
-
-    margin:0 auto 45px;
-
-    color:#d8d8d8;
-
-    font-size:18px;
-
-    line-height:1.9;
-}
-
-
-/* =========================
-   SOCIAL ICONS
-========================= */
-
-.socials{
-    width:100%;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    flex-wrap:wrap;
-
-    gap:16px;
-
-    margin-bottom:20px;
-}
-
-.socials a{
-    width:58px;
-    height:58px;
-
-    flex:0 0 58px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    color:#fff;
-
-    text-decoration:none;
-
-    border:1px solid #1aff73;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.03);
-
-    backdrop-filter:blur(10px);
-
-    transition:.3s ease;
-}
-
-.socials a i{
-    font-size:23px;
-}
-.social-text-icon{
-    font-size:22px;
-    font-weight:800;
-    line-height:1;
-}
-
-.reviews-section{
-    width:100%;
-    max-width:850px;
-    margin:60px auto 0;
-    padding:40px;
-    background:#0c0c0c;
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:25px;
-}
-
-.reviews-head{
-    text-align:center;
-    margin-bottom:28px;
-}
-
-.reviews-head h2{
-    font-size:40px;
-    line-height:1.2;
-    margin-bottom:10px;
-}
-
-.reviews-head p{
-    color:#999;
-    font-size:14px;
-    line-height:1.7;
-}
-
-.rating-summary{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:14px;
-    margin:20px 0 30px;
-    flex-wrap:wrap;
-}
-
-.average-rating{
-    font-size:34px;
-    font-weight:800;
-}
-
-.stars{
-    color:#1aff73;
-    letter-spacing:3px;
-    font-size:22px;
-}
-
-.review-form{
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-    margin-bottom:30px;
-}
-
-.review-form input,
-.review-form textarea{
-    width:100%;
-    padding:15px;
-    background:#050505;
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:14px;
-    color:#fff;
-    font-family:'Poppins',sans-serif;
-    font-size:15px;
-    outline:none;
-}
-
-.review-form input:focus,
-.review-form textarea:focus{
-    border-color:#1aff73;
-    box-shadow:0 0 12px rgba(26,255,115,.12);
-}
-
-.review-form textarea{
-    min-height:120px;
-    resize:vertical;
-}
-
-.star-picker{
-    display:flex;
-    justify-content:center;
-    gap:8px;
-}
-
-.star-picker button{
-    background:none;
-    border:0;
-    color:#555;
-    font-size:28px;
-    cursor:pointer;
-    padding:2px;
-    transition:.2s;
-}
-
-.star-picker button.active,
-.star-picker button:hover{
-    color:#1aff73;
-    transform:scale(1.08);
-}
-
-.review-submit{
-    min-height:52px;
-    border:0;
-    border-radius:14px;
-    background:#1aff73;
-    color:#000;
-    font-family:'Poppins',sans-serif;
-    font-weight:700;
-    cursor:pointer;
-}
-
-.review-submit:hover{
-    transform:translateY(-2px);
-    box-shadow:0 0 25px #1aff73;
-}
-
-.review-message{
-    text-align:center;
-    color:#1aff73;
-    font-size:13px;
-}
-
-.review-list{
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-}
-
-.review-card{
-    padding:20px;
-    background:#050505;
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:16px;
-}
-
-.review-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:12px;
-    margin-bottom:8px;
-}
-
-.review-name{
-    font-weight:700;
-}
-
-.review-date{
-    color:#666;
-    font-size:12px;
-}
-
-.review-card .stars{
-    font-size:16px;
-    margin-bottom:8px;
-}
-
-.review-card p{
-    color:#ccc;
-    font-size:14px;
-    line-height:1.7;
-}
-
-.owner-reply{
-    margin-top:14px;
-    padding:12px 14px;
-    border-left:3px solid #1aff73;
-    background:rgba(26,255,115,.04);
-    color:#aaa;
-    font-size:13px;
-    line-height:1.6;
-}
-
-.owner-reply strong{
-    color:#1aff73;
-}
-
-.review-links{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:14px;
-    margin-top:25px;
-}
-
-.review-links a{
-    min-height:52px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:9px;
-    padding:13px 16px;
-    border:1px solid #1aff73;
-    border-radius:14px;
-    color:#fff;
-    text-decoration:none;
-    font-weight:600;
-    transition:.3s;
-}
-
-.review-links a:hover{
-    background:#1aff73;
-    color:#000;
-    transform:translateY(-2px);
-}
-
-
-.socials a:hover{
-    background:#1aff73;
-    color:#000;
-
-    transform:translateY(-5px);
-
-    box-shadow:0 0 25px #1aff73;
-}
-
-
-/* =========================
-   CONTACT SECTION
-========================= */
-
-.contact-section{
-    width:100%;
-    max-width:700px;
-
-    margin:90px auto 0;
-
-    padding:40px;
-
-    background:#0c0c0c;
-
-    border:1px solid rgba(255,255,255,.08);
-
-    border-radius:25px;
-}
-
-.contact-section h2{
-    text-align:center;
-
-    margin-bottom:30px;
-
-    font-size:40px;
-
-    line-height:1.2;
-}
-
-
-/* =========================
-   FORM
-========================= */
-
-#contact-form{
-    width:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:18px;
-}
-
-#contact-form input,
-#contact-form textarea{
-    width:100%;
-
-    padding:17px 18px;
-
-    background:#050505;
-
-    border:1px solid rgba(255,255,255,.1);
-
-    border-radius:14px;
-
-    color:#fff;
-
-    font-family:'Poppins',sans-serif;
-
-    font-size:16px;
-
-    outline:none;
-
-    transition:.3s;
-}
-
-#contact-form input::placeholder,
-#contact-form textarea::placeholder{
-    color:#777;
-}
-
-#contact-form input:focus,
-#contact-form textarea:focus{
-    border-color:#1aff73;
-
-    box-shadow:0 0 12px rgba(26,255,115,.12);
-}
-
-#contact-form textarea{
-    min-height:150px;
-
-    resize:vertical;
-}
-
-
-/* =========================
-   SEND BUTTONS
-========================= */
-
-.send-buttons{
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    gap:15px;
-
-    margin-top:2px;
-}
-
-.send-buttons button{
-    min-height:56px;
-
-    padding:15px 18px;
-
-    border:none;
-
-    border-radius:14px;
-
-    font-family:'Poppins',sans-serif;
-
-    font-size:15px;
-
-    font-weight:600;
-
-    cursor:pointer;
-
-    transition:.3s ease;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:9px;
-}
-
-.gmail-btn{
-    background:#1aff73;
-    color:#000;
-}
-
-.whatsapp-btn{
-    background:#1aff73;
-    color:#000;
-}
-
-.send-buttons button:hover{
-    transform:translateY(-3px);
-
-    box-shadow:0 0 25px #1aff73;
-}
-
-.send-buttons button:active{
-    transform:scale(.98);
-}
-
-
-/* =========================
-   RESPONSE
-========================= */
-
-#response-msg{
-    margin-top:20px;
-
-    text-align:center;
-
-    color:#1aff73;
-
-    font-size:14px;
-
-    line-height:1.5;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-    margin-top:80px;
-
-    padding:30px 20px;
-
-    text-align:center;
-
-    border-top:1px solid rgba(255,255,255,.08);
-
-    background:#050505;
-}
-
-.footer-contact{
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    flex-wrap:wrap;
-
-    gap:15px;
-
-    margin-bottom:15px;
-}
-
-.footer-contact a{
-    text-decoration:none;
-
-    color:#fff;
-
-    font-size:15px;
-
-    transition:.3s;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:7px;
-}
-
-.footer-contact a:hover{
-    color:#1aff73;
-}
-
-.footer-contact i{
-    color:#1aff73;
-}
-
-.dot{
-    width:5px;
-    height:5px;
-
-    background:#1aff73;
-
-    border-radius:50%;
-}
-
-footer p{
-    color:#777;
-
-    font-size:13px;
-
-    line-height:1.6;
-}
-
-
-/* ==================================================
-   TABLET
-================================================== */
-
-@media(max-width:900px){
-
-    .hero{
-        padding:50px 25px;
+    /* ===== LOGO ===== */
+    .logo {
+      width:190px; height:190px; border-radius:50%; object-fit:cover;
+      border:5px solid #1aff73; margin-bottom:30px;
+      box-shadow:0 0 45px #1aff73;
     }
 
-    h1{
-        font-size:55px;
+    /* ===== HEADING & ABOUT ===== */
+    h1 {
+      font-size:68px; font-weight:800; line-height:1.1;
+      margin-bottom:20px; word-break:normal;
+    }
+    .green { color:#1aff73; }
+    .about {
+      width:100%; max-width:760px; margin:0 auto 45px;
+      color:#d8d8d8; font-size:18px; line-height:1.9;
     }
 
-    .logo{
-        width:170px;
-        height:170px;
+    /* ===== SOCIAL ICONS — REAL BRAND COLORS ===== */
+    .socials {
+      width:100%; display:flex; justify-content:center;
+      align-items:center; flex-wrap:wrap; gap:16px; margin-bottom:20px;
+    }
+    .socials a {
+      width:58px; height:58px; flex:0 0 58px; display:flex;
+      align-items:center; justify-content:center; color:#fff;
+      text-decoration:none; border-radius:50%;
+      transition:.3s ease;
+      box-shadow:0 2px 12px rgba(0,0,0,.4);
+    }
+    .socials a i { font-size:26px; }
+    .social-text-icon { font-size:22px; font-weight:800; line-height:1; }
+
+    /* Brand colors */
+    .socials a.instagram {
+      background:radial-gradient(circle at 30% 110%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%);
+    }
+    .socials a.facebook  { background:#1877F2; }
+    .socials a.youtube   { background:#FF0000; }
+    .socials a.pinterest { background:#E60023; }
+    .socials a.yelp      { background:#D32323; }
+    .socials a.website   { background:#1aff73; color:#000; }
+    .socials a.houzz     { background:#4DBC15; }
+    .socials a.thumbtack { background:#009FD9; }
+
+    /* Hover effect */
+    .socials a:hover {
+      transform:translateY(-5px) scale(1.08);
+      box-shadow:0 8px 28px rgba(0,0,0,.6);
+      filter:brightness(1.1);
+    }
+    .socials a.website:hover { box-shadow:0 0 25px #1aff73; }
+
+    /* ===== REVIEWS SECTION ===== */
+    .reviews-section {
+      width:100%; max-width:850px; margin:0 auto 40px; padding:40px;
+      background:#0c0c0c; border:1px solid rgba(255,255,255,.08);
+      border-radius:25px;
+    }
+    .reviews-head { text-align:center; margin-bottom:28px; }
+    .reviews-head h2 { font-size:40px; line-height:1.2; margin-bottom:10px; }
+    .reviews-head p { color:#999; font-size:14px; line-height:1.7; }
+
+    .rating-summary {
+      display:flex; justify-content:center; align-items:center;
+      gap:14px; margin:20px 0 30px; flex-wrap:wrap;
+    }
+    .average-rating { font-size:34px; font-weight:800; }
+    .stars { color:#1aff73; letter-spacing:3px; font-size:22px; }
+
+    .review-form {
+      display:flex; flex-direction:column; gap:14px; margin-bottom:30px;
+    }
+    .review-form input,
+    .review-form textarea {
+      width:100%; padding:15px; background:#050505;
+      border:1px solid rgba(255,255,255,.1); border-radius:14px;
+      color:#fff; font-family:'Poppins',sans-serif; font-size:15px; outline:none;
+    }
+    .review-form input:focus,
+    .review-form textarea:focus {
+      border-color:#1aff73; box-shadow:0 0 12px rgba(26,255,115,.12);
+    }
+    .review-form textarea { min-height:120px; resize:vertical; }
+
+    .star-picker { display:flex; justify-content:center; gap:8px; }
+    .star-picker button {
+      background:none; border:0; color:#555; font-size:28px;
+      cursor:pointer; padding:2px; transition:.2s;
+    }
+    .star-picker button.active,
+    .star-picker button:hover {
+      color:#1aff73; transform:scale(1.08);
     }
 
-}
-
-
-/* ==================================================
-   MOBILE
-================================================== */
-
-@media(max-width:600px){
-
-    .hero{
-        min-height:auto;
-
-        padding:45px 16px 30px;
+    .review-submit {
+      min-height:52px; border:0; border-radius:14px;
+      background:#1aff73; color:#000; font-family:'Poppins',sans-serif;
+      font-weight:700; cursor:pointer; transition:.3s;
+    }
+    .review-submit:hover {
+      transform:translateY(-2px); box-shadow:0 0 25px #1aff73;
+    }
+    .review-message {
+      text-align:center; color:#1aff73; font-size:13px;
     }
 
-    .container{
-        width:100%;
+    .review-list { display:flex; flex-direction:column; gap:15px; }
+    .review-card {
+      padding:20px; background:#050505;
+      border:1px solid rgba(255,255,255,.08); border-radius:16px;
+    }
+    .review-top {
+      display:flex; justify-content:space-between; align-items:center;
+      gap:12px; margin-bottom:8px;
+    }
+    .review-name { font-weight:700; }
+    .review-date { color:#666; font-size:12px; }
+    .review-card .stars { font-size:16px; margin-bottom:8px; }
+    .review-card p { color:#ccc; font-size:14px; line-height:1.7; }
+    .owner-reply {
+      margin-top:14px; padding:12px 14px;
+      border-left:3px solid #1aff73;
+      background:rgba(26,255,115,.04);
+      color:#aaa; font-size:13px; line-height:1.6;
+    }
+    .owner-reply strong { color:#1aff73; }
+
+    /* ===== REVIEW LINKS — real brand colors ===== */
+    .review-links {
+      display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:25px;
+    }
+    .review-links a {
+      min-height:52px; display:flex; align-items:center;
+      justify-content:center; gap:9px; padding:13px 16px;
+      border-radius:14px;
+      color:#fff; text-decoration:none; font-weight:600;
+      transition:.3s; text-align:center;
+      box-shadow:0 2px 10px rgba(0,0,0,.4);
+    }
+    .review-links a i { font-size:18px; }
+
+    /* Brand colors for review links */
+    .review-links a.yelp-link      { background:#D32323; }
+    .review-links a.google-link    { background:#4285F4; }
+    .review-links a.houzz-link     { background:#4DBC15; }
+    .review-links a.thumbtack-link { background:#009FD9; }
+
+    .review-links a:hover {
+      transform:translateY(-2px);
+      filter:brightness(1.15);
+      box-shadow:0 8px 22px rgba(0,0,0,.6);
     }
 
-
-    /* LOGO */
-
-    .logo{
-        width:135px;
-        height:135px;
-
-        border-width:4px;
-
-        margin-bottom:22px;
-
-        box-shadow:0 0 30px #1aff73;
+    /* ===== CONTACT SECTION ===== */
+    .contact-section {
+      width:100%; max-width:700px; margin:0 auto 40px;
+      padding:40px; background:#0c0c0c;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:25px;
+    }
+    .contact-section h2 {
+      text-align:center; margin-bottom:30px; font-size:40px; line-height:1.2;
     }
 
-
-    /* HEADING */
-
-    h1{
-        font-size:34px;
-
-        line-height:1.2;
-
-        margin-bottom:18px;
-
-        padding:0 5px;
+    #contact-form {
+      width:100%; display:flex; flex-direction:column; gap:18px;
     }
-
-
-    /* ABOUT */
-
-    .about{
-        font-size:14px;
-
-        line-height:1.8;
-
-        margin-bottom:30px;
-
-        padding:0 5px;
-    }
-
-
-    /* SOCIAL ICONS */
-
-    .socials{
-        gap:12px;
-
-        margin-bottom:5px;
-    }
-
-    .socials a{
-        width:50px;
-        height:50px;
-
-        flex:0 0 50px;
-    }
-
-    .socials a i{
-        font-size:20px;
-    }
-
-
-    /* CONTACT */
-
-    .contact-section{
-        margin-top:55px;
-
-        padding:25px 17px;
-
-        border-radius:20px;
-    }
-
-    .contact-section h2{
-        font-size:27px;
-
-        margin-bottom:24px;
-    }
-
-
-    /* FORM */
-
-    #contact-form{
-        gap:14px;
-    }
-
     #contact-form input,
-    #contact-form textarea{
-        font-size:15px;
+    #contact-form textarea {
+      width:100%; padding:17px 18px; background:#050505;
+      border:1px solid rgba(255,255,255,.1); border-radius:14px;
+      color:#fff; font-family:'Poppins',sans-serif; font-size:16px;
+      outline:none; transition:.3s;
+    }
+    #contact-form input::placeholder,
+    #contact-form textarea::placeholder { color:#777; }
+    #contact-form input:focus,
+    #contact-form textarea:focus {
+      border-color:#1aff73; box-shadow:0 0 12px rgba(26,255,115,.12);
+    }
+    #contact-form textarea { min-height:150px; resize:vertical; }
 
-        padding:15px;
+    .send-buttons {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:15px; margin-top:2px;
+    }
+    .send-buttons button {
+      min-height:56px; padding:15px 18px; border:none;
+      border-radius:14px; font-family:'Poppins',sans-serif;
+      font-size:15px; font-weight:600; cursor:pointer;
+      transition:.3s ease; display:flex; align-items:center;
+      justify-content:center; gap:9px;
+    }
+    .gmail-btn,
+    .whatsapp-btn { background:#1aff73; color:#000; }
+    .send-buttons button:hover {
+      transform:translateY(-3px); box-shadow:0 0 25px #1aff73;
+    }
+    .send-buttons button:active { transform:scale(.98); }
+
+    #response-msg {
+      margin-top:20px; text-align:center; color:#1aff73;
+      font-size:14px; line-height:1.5;
     }
 
-    #contact-form textarea{
-        min-height:130px;
+    /* ===== FOOTER ===== */
+    footer {
+      margin-top:80px; padding:30px 20px; text-align:center;
+      border-top:1px solid rgba(255,255,255,.08); background:#050505;
+    }
+    .footer-contact {
+      display:flex; justify-content:center; align-items:center;
+      flex-wrap:wrap; gap:15px; margin-bottom:15px;
+    }
+    .footer-contact a {
+      text-decoration:none; color:#fff; font-size:15px;
+      transition:.3s; display:flex; align-items:center; gap:7px;
+    }
+    .footer-contact a:hover { color:#1aff73; }
+    .footer-contact i { color:#1aff73; }
+    .dot { width:5px; height:5px; background:#1aff73; border-radius:50%; }
+    footer p { color:#777; font-size:13px; line-height:1.6; }
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:900px) {
+      .hero { padding:50px 25px; }
+      h1 { font-size:55px; }
+      .logo { width:170px; height:170px; }
+      .reviews-section { padding:30px; }
     }
 
+    @media(max-width:600px) {
+      .hero { min-height:auto; padding:45px 16px 30px; }
+      .logo {
+        width:135px; height:135px; border-width:4px;
+        margin-bottom:22px; box-shadow:0 0 30px #1aff73;
+      }
+      h1 { font-size:34px; line-height:1.2; margin-bottom:18px; padding:0 5px; }
+      .about { font-size:14px; line-height:1.8; margin-bottom:30px; padding:0 5px; }
+      .socials { gap:12px; margin-bottom:5px; }
+      .socials a { width:50px; height:50px; flex:0 0 50px; }
+      .socials a i { font-size:22px; }
 
-    /* BUTTONS */
+      .reviews-section { padding:25px 17px; border-radius:20px; margin-bottom:30px; }
+      .reviews-head h2 { font-size:27px; }
+      .rating-summary { margin:18px 0 25px; }
+      .average-rating { font-size:30px; }
+      .review-links { grid-template-columns:1fr; }
 
-    .send-buttons{
-        grid-template-columns:1fr;
+      .contact-section { padding:25px 17px; border-radius:20px; margin-bottom:30px; }
+      .contact-section h2 { font-size:27px; margin-bottom:24px; }
+      #contact-form { gap:14px; }
+      #contact-form input,
+      #contact-form textarea { font-size:15px; padding:15px; }
+      #contact-form textarea { min-height:130px; }
+      .send-buttons { grid-template-columns:1fr; gap:12px; }
+      .send-buttons button { width:100%; min-height:52px; font-size:15px; }
 
-        gap:12px;
-    }
-
-    .send-buttons button{
-        width:100%;
-
-        min-height:52px;
-
-        font-size:15px;
-    }
-
-
-    /* REVIEWS */
-
-    .reviews-section{
-        margin-top:45px;
-        padding:25px 17px;
-        border-radius:20px;
-    }
-
-    .reviews-head h2{
-        font-size:27px;
-    }
-
-    .rating-summary{
-        margin:18px 0 25px;
-    }
-
-    .average-rating{
-        font-size:30px;
-    }
-
-    .review-links{
-        grid-template-columns:1fr;
-    }
-
-    /* FOOTER */
-
-    footer{
-        margin-top:55px;
-
-        padding:25px 15px;
-    }
-
-    .footer-contact{
-        flex-direction:column;
-
-        gap:10px;
-    }
-
-    .dot{
-        display:none;
-    }
-
-    .footer-contact a{
-        font-size:13px;
-
-        max-width:100%;
-
-        text-align:center;
-
+      footer { margin-top:55px; padding:25px 15px; }
+      .footer-contact { flex-direction:column; gap:10px; }
+      .dot { display:none; }
+      .footer-contact a {
+        font-size:13px; max-width:100%; text-align:center;
         overflow-wrap:anywhere;
+      }
+      footer p { font-size:12px; }
     }
 
-    footer p{
-        font-size:12px;
+    @media(max-width:380px) {
+      .hero { padding-left:12px; padding-right:12px; }
+      .logo { width:120px; height:120px; }
+      h1 { font-size:29px; }
+      .about { font-size:13px; }
+      .socials { gap:9px; }
+      .socials a { width:46px; height:46px; flex-basis:46px; }
+      .socials a i { font-size:20px; }
+      .contact-section { padding:22px 14px; }
+      .contact-section h2 { font-size:24px; }
+      .reviews-section { padding:22px 14px; }
+      .reviews-head h2 { font-size:24px; }
     }
 
-}
-
-
-/* ==================================================
-   SMALL PHONES
-================================================== */
-
-@media(max-width:380px){
-
-    .hero{
-        padding-left:12px;
-        padding-right:12px;
+    @media(max-width:320px) {
+      h1 { font-size:26px; }
+      .socials { gap:7px; }
+      .socials a { width:43px; height:43px; flex-basis:43px; }
+      .socials a i { font-size:18px; }
     }
-
-    .logo{
-        width:120px;
-        height:120px;
-    }
-
-    h1{
-        font-size:29px;
-    }
-
-    .about{
-        font-size:13px;
-    }
-
-    .socials{
-        gap:9px;
-    }
-
-    .socials a{
-        width:46px;
-        height:46px;
-
-        flex-basis:46px;
-    }
-
-    .socials a i{
-        font-size:18px;
-    }
-
-    .contact-section{
-        padding:22px 14px;
-    }
-
-    .contact-section h2{
-        font-size:24px;
-    }
-
-}
-
-
-/* ==================================================
-   VERY SMALL PHONES
-================================================== */
-
-@media(max-width:320px){
-
-    h1{
-        font-size:26px;
-    }
-
-    .socials{
-        gap:7px;
-    }
-
-    .socials a{
-        width:43px;
-        height:43px;
-
-        flex-basis:43px;
-    }
-
-    .socials a i{
-        font-size:17px;
-    }
-
-}
-
-</style>
+  </style>
 </head>
-
-
 <body>
 
+  <!-- LOADER -->
+  <div id="loader">
+    <img src="Logo.jpg" class="loader-logo" alt="AXIAL Woodworking">
+    <div class="loading-text">Loading...</div>
+  </div>
 
-<!-- =========================
-     LOADER
-========================= -->
+  <!-- MAIN HERO -->
+  <section class="hero">
+    <div class="container">
 
-<div id="loader">
+      <!-- LOGO -->
+      <img src="Logo.jpg" class="logo" alt="AXIAL Woodworking">
 
-    <img
-        src="Logo.jpg"
-        class="loader-logo"
-        alt="AXIAL Woodworking"
-    >
+      <!-- TITLE -->
+      <h1>AXIAL <span class="green">WOODWORKING</span></h1>
 
-    <div class="loading-text">
-        Loading...
-    </div>
-
-</div>
-
-
-<!-- =========================
-     WEBSITE
-========================= -->
-
-<section class="hero">
-
-<div class="container">
-
-
-    <!-- LOGO -->
-
-    <img
-        src="Logo.jpg"
-        class="logo"
-        alt="AXIAL Woodworking"
-    >
-
-
-    <!-- TITLE -->
-
-    <h1>
-        AXIAL <span class="green">WOODWORKING</span>
-    </h1>
-
-
-    <!-- ABOUT -->
-
-    <p class="about">
-
-        Kitchen & Bath Contractor<br>
-
-        🪵 Custom Cabinetry & Millwork<br>
-
+      <!-- ABOUT -->
+      <p class="about">
+        Kitchen &amp; Bath Contractor<br>
+        🪵 Custom Cabinetry &amp; Millwork<br>
         🏡 Kitchens • Bathrooms • Closets<br>
-
-        🏢 Residential & Commercial Projects<br>
-
+        🏢 Residential &amp; Commercial Projects<br>
         📍 Los Angeles, CA<br>
-
         ⌨️ DM for Inquiries
-
-    </p>
-
-
-    <!-- =========================
-         SOCIAL ICONS
-    ========================= -->
-
-    <div class="socials">
-
-
-        <!-- INSTAGRAM -->
-
-        <a
-            href="https://www.instagram.com/axialwoodworking/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Instagram"
-            aria-label="Instagram"
-        >
-            <i class="fa-brands fa-instagram"></i>
-        </a>
-
-
-        <!-- FACEBOOK -->
-
-        <a
-            href="https://web.facebook.com/axialwoodworking"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Facebook"
-            aria-label="Facebook"
-        >
-            <i class="fa-brands fa-facebook-f"></i>
-        </a>
-
-
-        <!-- YOUTUBE -->
-
-        <a
-            href="https://www.youtube.com/@axialwoodworking"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="YouTube"
-            aria-label="YouTube"
-        >
-            <i class="fa-brands fa-youtube"></i>
-        </a>
-
-
-        <!-- PINTEREST -->
-
-        <a
-            href="https://www.pinterest.com/axialwoodworking/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Pinterest"
-            aria-label="Pinterest"
-        >
-            <i class="fa-brands fa-pinterest-p"></i>
-        </a>
-
-
-        <!-- YELP -->
-
-        <a
-            href="https://www.yelp.com/biz/axial-woodworking-paramount-2"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Yelp"
-            aria-label="Yelp"
-        >
-            <i class="fa-brands fa-yelp"></i>
-        </a>
-
-
-        <!-- WEBSITE -->
-
-        <a
-            href="https://axialwoodworking.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Website"
-            aria-label="Website"
-        >
-            <i class="fa-solid fa-globe"></i>
-        </a>
-
-        <a
-            href="https://www.houzz.com/pro/axialwoodworking/axial-woodworking"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Houzz"
-            aria-label="Houzz"
-        >
-            <span class="social-text-icon">H</span>
-        </a>
-
-        <a
-            href="https://www.thumbtack.com/customer/profile"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Thumbtack"
-            aria-label="Thumbtack"
-        >
-            <span class="social-text-icon">T</span>
-        </a>
-
-    </div>
-
-
-    <!-- =========================
-         CONTACT FORM
-    ========================= -->
-
-    <section class="contact-section">
-
-        <h2>
-            Send Us A Message
-        </h2>
-
-
-        <form id="contact-form">
-
-
-            <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                autocomplete="name"
-                required
-            >
-
-
-            <input
-                type="text"
-                name="Address"
-                placeholder="Your Address"
-                autocomplete="street-address"
-                required
-            >
-
-
-            <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                autocomplete="email"
-                required
-            >
-
-
-            <input
-                type="tel"
-                name="phone"
-                placeholder="Phone Number"
-                autocomplete="tel"
-            >
-
-
-            <textarea
-                name="message"
-                placeholder="Your Message"
-                required
-            ></textarea>
-
-
-            <!-- SEND BUTTONS -->
-
-            <div class="send-buttons">
-
-
-                <button
-                    type="button"
-                    class="gmail-btn"
-                    onclick="sendGmail()"
-                >
-
-                    <i class="fa-solid fa-envelope"></i>
-
-                    Send via Gmail
-
-                </button>
-
-
-                <button
-                    type="button"
-                    class="whatsapp-btn"
-                    onclick="sendWhatsApp()"
-                >
-
-                    <i class="fa-brands fa-whatsapp"></i>
-
-                    Send via WhatsApp
-
-                </button>
-
-
-            </div>
-
-
-        </form>
-
-
-        <p id="response-msg"></p>
-
-    </section>
-
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     REVIEWS & RATINGS
-========================= -->
-
-<section class="reviews-section">
-
-    <div class="reviews-head">
-        <h2>Reviews & <span class="green">Ratings</span></h2>
-        <p>Share your experience with AXIAL Woodworking. Your feedback helps future customers.</p>
-    </div>
-
-    <div class="rating-summary">
-        <div class="average-rating" id="average-rating">0.0</div>
-        <div>
+      </p>
+
+      <!-- SOCIAL ICONS — real brand colors -->
+      <div class="socials">
+        <a href="https://www.instagram.com/axialwoodworking/" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram" class="instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://web.facebook.com/axialwoodworking" target="_blank" rel="noopener noreferrer" title="Facebook" aria-label="Facebook" class="facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.youtube.com/@axialwoodworking" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="YouTube" class="youtube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.pinterest.com/axialwoodworking/" target="_blank" rel="noopener noreferrer" title="Pinterest" aria-label="Pinterest" class="pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+        <a href="https://www.yelp.com/biz/axial-woodworking-paramount-2" target="_blank" rel="noopener noreferrer" title="Yelp" aria-label="Yelp" class="yelp"><i class="fa-brands fa-yelp"></i></a>
+        <a href="https://axialwoodworking.com/" target="_blank" rel="noopener noreferrer" title="Website" aria-label="Website" class="website"><i class="fa-solid fa-globe"></i></a>
+        <a href="https://www.houzz.com/pro/axialwoodworking/axial-woodworking" target="_blank" rel="noopener noreferrer" title="Houzz" aria-label="Houzz" class="houzz"><i class="fa-brands fa-houzz"></i></a>
+        <a href="https://www.thumbtack.com/customer/profile" target="_blank" rel="noopener noreferrer" title="Thumbtack" aria-label="Thumbtack" class="thumbtack"><i class="fa-solid fa-hammer"></i></a>
+      </div>
+
+      <!-- ===== REVIEWS SECTION ===== -->
+      <section class="reviews-section">
+        <div class="reviews-head">
+          <h2>Reviews &amp; <span class="green">Ratings</span></h2>
+          <p>Share your experience with AXIAL Woodworking. Your feedback helps future customers.</p>
+        </div>
+
+        <div class="rating-summary">
+          <div class="average-rating" id="average-rating">0.0</div>
+          <div>
             <div class="stars">★★★★★</div>
             <div style="color:#777;font-size:12px;" id="review-count">0 reviews</div>
+          </div>
         </div>
-    </div>
 
-    <form class="review-form" id="review-form">
-        <input type="text" id="review-name" placeholder="Your Name" required>
-
-        <div class="star-picker" id="star-picker" aria-label="Choose your rating">
+        <form class="review-form" id="review-form">
+          <input type="text" id="review-name" placeholder="Your Name" required>
+          <div class="star-picker" id="star-picker" aria-label="Choose your rating">
             <button type="button" data-rating="1">★</button>
             <button type="button" data-rating="2">★</button>
             <button type="button" data-rating="3">★</button>
             <button type="button" data-rating="4">★</button>
             <button type="button" data-rating="5">★</button>
-        </div>
+          </div>
+          <textarea id="review-text" placeholder="Write your review or message..." required></textarea>
+          <button class="review-submit" type="submit"><i class="fa-solid fa-star"></i> Submit Review</button>
+          <p class="review-message" id="review-message"></p>
+        </form>
 
-        <textarea id="review-text" placeholder="Write your review or message..." required></textarea>
+        <div class="review-list" id="review-list"></div>
 
-        <button class="review-submit" type="submit">
-            <i class="fa-solid fa-star"></i> Submit Review
-        </button>
-
-        <p class="review-message" id="review-message"></p>
-    </form>
-
-    <div class="review-list" id="review-list"></div>
-
-    <div class="review-links">
-        <a href="https://www.houzz.com/pro/axialwoodworking/axial-woodworking"
-           target="_blank" rel="noopener noreferrer">
-            <i class="fa-solid fa-house"></i> Review on Houzz
-        </a>
-
-        <a href="https://www.thumbtack.com/customer/profile"
-           target="_blank" rel="noopener noreferrer">
+        <!-- ===== REVIEW LINKS — real brand colors ===== -->
+        <div class="review-links">
+          <a href="https://www.yelp.com/biz/axial-woodworking-paramount-2" target="_blank" rel="noopener noreferrer" class="yelp-link">
+            <i class="fa-brands fa-yelp"></i> Review on Yelp
+          </a>
+          <a href="https://maps.app.goo.gl/d2c4qKGscDreH9Uz8" target="_blank" rel="noopener noreferrer" class="google-link">
+            <i class="fa-brands fa-google"></i> Review on Google
+          </a>
+          <a href="https://www.houzz.com/pro/axialwoodworking/axial-woodworking" target="_blank" rel="noopener noreferrer" class="houzz-link">
+            <i class="fa-brands fa-houzz"></i> Review on Houzz
+          </a>
+          <a href="https://www.thumbtack.com/customer/profile" target="_blank" rel="noopener noreferrer" class="thumbtack-link">
             <i class="fa-solid fa-hammer"></i> View Thumbtack
-        </a>
+          </a>
+        </div>
+      </section>
+
+      <!-- ===== CONTACT SECTION ===== -->
+      <section class="contact-section">
+        <h2>Send Us A Message</h2>
+        <form id="contact-form">
+          <input type="text" name="name" placeholder="Your Name" autocomplete="name" required>
+          <input type="text" name="Address" placeholder="Your Address" autocomplete="street-address" required>
+          <input type="email" name="email" placeholder="Your Email" autocomplete="email" required>
+          <input type="tel" name="phone" placeholder="Phone Number" autocomplete="tel">
+          <textarea name="message" placeholder="Your Message" required></textarea>
+
+          <div class="send-buttons">
+            <button type="button" class="gmail-btn" onclick="sendGmail()">
+              <i class="fa-solid fa-envelope"></i> Send via Gmail
+            </button>
+            <button type="button" class="whatsapp-btn" onclick="sendWhatsApp()">
+              <i class="fa-brands fa-whatsapp"></i> Send via WhatsApp
+            </button>
+          </div>
+        </form>
+        <p id="response-msg"></p>
+      </section>
+
     </div>
+  </section>
 
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
+  <!-- FOOTER -->
+  <footer>
     <div class="footer-contact">
-
-        <a href="tel:+18187075471">
-
-            <i class="fa-solid fa-phone"></i>
-
-            <span>(818) 707-5471</span>
-
-        </a>
-
-
-        <span class="dot"></span>
-
-
-        <a href="mailto:misaelbaltazar@axialwoodworking.com">
-
-            <i class="fa-solid fa-envelope"></i>
-
-            <span>misaelbaltazar@axialwoodworking.com</span>
-
-        </a>
-
+      <a href="tel:+18187075471">
+        <i class="fa-solid fa-phone"></i>
+        <span>(818) 707-5471</span>
+      </a>
+      <span class="dot"></span>
+      <a href="mailto:misaelbaltazar@axialwoodworking.com">
+        <i class="fa-solid fa-envelope"></i>
+        <span>misaelbaltazar@axialwoodworking.com</span>
+      </a>
     </div>
+    <p>© 2026 Axial Woodworking — All Rights Reserved</p>
+  </footer>
 
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    /* =========================
+       CONTACT FORM HELPERS
+    ========================= */
+    function getFormData() {
+      return {
+        name: document.querySelector('[name="name"]').value.trim(),
+        address: document.querySelector('[name="Address"]').value.trim(),
+        email: document.querySelector('[name="email"]').value.trim(),
+        phone: document.querySelector('[name="phone"]').value.trim(),
+        message: document.querySelector('[name="message"]').value.trim()
+      };
+    }
 
-    <p>
-        © 2026 Axial Woodworking — All Rights Reserved
-    </p>
-
-</footer>
-
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
-<script>
-
-
-/* =========================
-   GET FORM DATA
-========================= */
-
-function getFormData(){
-
-    return {
-
-        name:
-        document.querySelector('[name="name"]').value.trim(),
-
-        address:
-        document.querySelector('[name="Address"]').value.trim(),
-
-        email:
-        document.querySelector('[name="email"]').value.trim(),
-
-        phone:
-        document.querySelector('[name="phone"]').value.trim(),
-
-        message:
-        document.querySelector('[name="message"]').value.trim()
-
-    };
-
-}
-
-
-/* =========================
-   VALIDATION
-========================= */
-
-function validateForm(data){
-
-    const response =
-        document.getElementById("response-msg");
-
-    if(
-        !data.name ||
-        !data.address ||
-        !data.email ||
-        !data.message
-    ){
-
-        response.innerText =
-            "Please fill in all required fields.";
-
+    function validateForm(data) {
+      const response = document.getElementById("response-msg");
+      if (!data.name || !data.address || !data.email || !data.message) {
+        response.innerText = "Please fill in all required fields.";
         response.style.color = "#ff4d4d";
-
         return false;
+      }
+      response.innerText = "";
+      return true;
     }
 
-    response.innerText = "";
+    function sendGmail() {
+      const data = getFormData();
+      if (!validateForm(data)) return;
 
-    return true;
-}
-
-
-/* =========================
-   GMAIL
-========================= */
-
-function sendGmail(){
-
-    const data = getFormData();
-
-    if(!validateForm(data)){
-        return;
-    }
-
-
-    const subject =
-        "New Inquiry - AXIAL Woodworking";
-
-
-    const body =
-
-`Hello AXIAL Woodworking,
+      const subject = "New Inquiry - AXIAL Woodworking";
+      const body = `Hello AXIAL Woodworking,
 
 I would like to make an inquiry.
 
@@ -1479,47 +521,20 @@ ${data.message}
 
 Thank you.`;
 
-
-    const gmailURL =
-
+      const gmailURL =
         "https://mail.google.com/mail/?view=cm&fs=1" +
+        "&to=" + encodeURIComponent("yasirwork5152026@gmail.com") +
+        "&su=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
 
-        "&to=" +
-
-        encodeURIComponent(
-            "yasirwork5152026@gmail.com"
-        ) +
-
-        "&su=" +
-
-        encodeURIComponent(subject) +
-
-        "&body=" +
-
-        encodeURIComponent(body);
-
-
-    window.open(gmailURL,"_blank");
-
-}
-
-
-/* =========================
-   WHATSAPP
-========================= */
-
-function sendWhatsApp(){
-
-    const data = getFormData();
-
-    if(!validateForm(data)){
-        return;
+      window.open(gmailURL, "_blank");
     }
 
+    function sendWhatsApp() {
+      const data = getFormData();
+      if (!validateForm(data)) return;
 
-    const message =
-
-`Hello AXIAL Woodworking,
+      const message = `Hello AXIAL Woodworking,
 
 I would like to make an inquiry.
 
@@ -1533,179 +548,116 @@ ${data.message}
 
 Thank you.`;
 
+      const whatsappNumber = "923278738775";
+      const whatsappURL =
+        "https://wa.me/" + whatsappNumber +
+        "?text=" + encodeURIComponent(message);
 
-    const whatsappNumber =
-        "923278738775";
+      window.open(whatsappURL, "_blank");
+    }
 
+    /* =========================
+       REVIEWS & RATINGS
+    ========================= */
+    let selectedRating = 0;
+    const reviewStorageKey = "axialWoodworkingReviews";
+    const starButtons = document.querySelectorAll("#star-picker button");
 
-    const whatsappURL =
-
-        "https://wa.me/" +
-
-        whatsappNumber +
-
-        "?text=" +
-
-        encodeURIComponent(message);
-
-
-    window.open(
-        whatsappURL,
-        "_blank"
-    );
-
-}
-
-
-/* =========================
-   REVIEWS & RATINGS
-========================= */
-
-let selectedRating = 0;
-const reviewStorageKey = "axialWoodworkingReviews";
-
-const starButtons = document.querySelectorAll("#star-picker button");
-
-starButtons.forEach(button => {
-    button.addEventListener("click", () => {
+    starButtons.forEach(button => {
+      button.addEventListener("click", () => {
         selectedRating = Number(button.dataset.rating);
-
         starButtons.forEach(star => {
-            star.classList.toggle(
-                "active",
-                Number(star.dataset.rating) <= selectedRating
-            );
+          star.classList.toggle(
+            "active",
+            Number(star.dataset.rating) <= selectedRating
+          );
         });
+      });
     });
-});
 
-function loadReviews(){
+    function loadReviews() {
+      const reviews = JSON.parse(localStorage.getItem(reviewStorageKey) || "[]");
+      const list = document.getElementById("review-list");
+      const count = document.getElementById("review-count");
+      const average = document.getElementById("average-rating");
 
-    const reviews = JSON.parse(
-        localStorage.getItem(reviewStorageKey) || "[]"
-    );
+      list.innerHTML = "";
 
-    const list = document.getElementById("review-list");
-    const count = document.getElementById("review-count");
-    const average = document.getElementById("average-rating");
-
-    list.innerHTML = "";
-
-    if(!reviews.length){
-
+      if (!reviews.length) {
         list.innerHTML = `
-            <div class="review-card">
-                <p style="text-align:center;color:#777;">
-                    No reviews yet. Be the first to share your experience.
-                </p>
-            </div>
+          <div class="review-card">
+            <p style="text-align:center;color:#777;">
+              No reviews yet. Be the first to share your experience.
+            </p>
+          </div>
         `;
-
         count.innerText = "0 reviews";
         average.innerText = "0.0";
         return;
-    }
+      }
 
-    const total = reviews.reduce(
-        (sum, review) => sum + review.rating,
-        0
-    );
+      const total = reviews.reduce((sum, r) => sum + r.rating, 0);
+      average.innerText = (total / reviews.length).toFixed(1);
+      count.innerText = reviews.length === 1 ? "1 review" : `${reviews.length} reviews`;
 
-    average.innerText =
-        (total / reviews.length).toFixed(1);
-
-    count.innerText =
-        reviews.length === 1
-        ? "1 review"
-        : `${reviews.length} reviews`;
-
-    reviews.slice().reverse().forEach(review => {
-
+      reviews.slice().reverse().forEach(review => {
         const card = document.createElement("div");
         card.className = "review-card";
-
-        const stars =
-            "★".repeat(review.rating) +
-            "☆".repeat(5 - review.rating);
+        const stars = "★".repeat(review.rating) + "☆".repeat(5 - review.rating);
 
         card.innerHTML = `
-            <div class="review-top">
-                <span class="review-name"></span>
-                <span class="review-date">${review.date}</span>
+          <div class="review-top">
+            <span class="review-name"></span>
+            <span class="review-date">${review.date}</span>
+          </div>
+          <div class="stars">${stars}</div>
+          <p class="review-body"></p>
+          ${review.reply ? `
+            <div class="owner-reply">
+              <strong>AXIAL Woodworking Reply:</strong>
+              ${review.reply}
             </div>
-
-            <div class="stars">${stars}</div>
-            <p class="review-body"></p>
-
-            ${review.reply ? `
-                <div class="owner-reply">
-                    <strong>AXIAL Woodworking Reply:</strong>
-                    ${review.reply}
-                </div>
-            ` : ""}
+          ` : ""}
         `;
-
         card.querySelector(".review-name").textContent = review.name;
         card.querySelector(".review-body").textContent = review.text;
-
         list.appendChild(card);
-    });
-}
+      });
+    }
 
-document.getElementById("review-form").addEventListener("submit", function(event){
+    document.getElementById("review-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const message = document.getElementById("review-message");
 
-    event.preventDefault();
-
-    const message = document.getElementById("review-message");
-
-    if(selectedRating === 0){
+      if (selectedRating === 0) {
         message.style.color = "#ff4d4d";
         message.innerText = "Please select a rating.";
         return;
-    }
+      }
 
-    const name =
-        document.getElementById("review-name").value.trim();
+      const name = document.getElementById("review-name").value.trim();
+      const text = document.getElementById("review-text").value.trim();
+      const reviews = JSON.parse(localStorage.getItem(reviewStorageKey) || "[]");
 
-    const text =
-        document.getElementById("review-text").value.trim();
-
-    const reviews = JSON.parse(
-        localStorage.getItem(reviewStorageKey) || "[]"
-    );
-
-    reviews.push({
+      reviews.push({
         name: name,
         rating: selectedRating,
         text: text,
         date: new Date().toLocaleDateString(),
         reply: ""
+      });
+
+      localStorage.setItem(reviewStorageKey, JSON.stringify(reviews));
+      this.reset();
+      selectedRating = 0;
+      starButtons.forEach(star => star.classList.remove("active"));
+
+      message.style.color = "#1aff73";
+      message.innerText = "Thank you! Your review has been added on this device.";
+      loadReviews();
     });
 
-    localStorage.setItem(
-        reviewStorageKey,
-        JSON.stringify(reviews)
-    );
-
-    this.reset();
-
-    selectedRating = 0;
-
-    starButtons.forEach(star =>
-        star.classList.remove("active")
-    );
-
-    message.style.color = "#1aff73";
-    message.innerText =
-        "Thank you! Your review has been added on this device.";
-
     loadReviews();
-});
-
-loadReviews();
-
-</script>
-
-
+  </script>
 </body>
 </html>
